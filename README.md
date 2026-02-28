@@ -25,13 +25,13 @@ equipment-management/          ← Monorepo root
 │       ├── dto/               ← Request DTOs
 │       └── exception/         ← Global Exception Handling
 ├── frontend/                  ← React application
-│   ├── src/
-│   │   ├── components/        ← React components
-│   │   │   └── ui/            ← shadcn/ui component files
-│   │   ├── api/               ← Axios API calls
-│   │   ├── lib/               ← Utilities
-│   │   └── App.jsx            ← Main app component
-│   └── package.json
+│   ├── package.json
+│   └── src/
+│       ├── components/        ← React components
+│       │   └── ui/            ← shadcn/ui component files
+│       ├── lib/               ← Utilities and API helpers (e.g. lib/api.ts)
+│       ├── pages/             ← Page components
+│       └── App.tsx            ← Main app component
 ├── db/
 │   └── init.sql               ← Database schema + seed data
 ├── README.md
@@ -70,10 +70,10 @@ Make sure you have installed:
    Or paste the contents of `db/init.sql` into your SQL client.
 
    This creates:
-   - `equipment_types` table (with 6 default types)
+   - `equipment_types` table (with default types)
    - `equipment` table
    - `maintenance_logs` table
-   - 3 sample equipment records
+   - sample equipment records
 
 4. Verify (optional):
    ```sql
@@ -106,7 +106,7 @@ Make sure you have installed:
 
 4. The backend starts on **http://localhost:8080**
 
-5. Verify by visiting: http://localhost:8080/api/equipment
+5. Verify by visiting: `http://localhost:8080/api/equipment`
 
 ---
 
@@ -127,7 +127,7 @@ Make sure you have installed:
    npm run dev
    ```
 
-4. Open the app at **http://localhost:5173**
+4. Open the app at **http://localhost:8081**
 
 ---
 
@@ -216,3 +216,4 @@ mvn clean install
 
 - ✅ **Filtering by status** — dropdown filter in the UI header
 - ✅ **Meaningful error messages** — business rule violations shown inline in forms
+
